@@ -2,94 +2,518 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Sofia Oliveira Academia Estética</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sofia Oliveira Academia de Estética - serviços, formações e espaço profissional de estética.">
+  <title>Sofia Oliveira Academia Estética</title>
   <style>
+    :root {
+      --ink: #26211f;
+      --muted: #6f6560;
+      --paper: #fffaf7;
+      --soft: #f4e5df;
+      --rose: #b65b6d;
+      --rose-dark: #884252;
+      --sage: #74836f;
+      --line: rgba(38, 33, 31, 0.14);
+      --shadow: 0 18px 45px rgba(70, 44, 39, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
     }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: #f8e8ee;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin: 10px 0;
-    }
-    .btn {
-      background: #d63384;
-      color: white;
-      padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      display: inline-block;
-      margin-top: 10px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      color: #d63384;
-    }
-    .galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .galeria img {
-      width: 100%;
-      border-radius: 10px;
+
+    img,
+    video {
+      max-width: 100%;
       display: block;
     }
-    footer {
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 14px 6vw;
+      background: rgba(255, 250, 247, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+      font-size: 0.94rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--rose-dark);
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+      gap: 48px;
+      align-items: center;
+      padding: 72px 6vw 42px;
+      background:
+        linear-gradient(110deg, rgba(255, 250, 247, 0.97) 0%, rgba(255, 250, 247, 0.86) 52%, rgba(255, 250, 247, 0.2) 100%),
+        url("assets/images/img1.jpg") center/cover;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--sage);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 720px;
+      font-size: clamp(2.6rem, 7vw, 5.9rem);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .hero-copy p {
+      max-width: 620px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      background: var(--rose);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 10px 22px rgba(182, 91, 109, 0.22);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--rose-dark);
+      border-color: rgba(136, 66, 82, 0.32);
+      box-shadow: none;
+    }
+
+    .hero-media {
+      align-self: stretch;
+      min-height: 420px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section {
+      padding: 72px 6vw;
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .intro-grid,
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .panel {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 32px rgba(70, 44, 39, 0.08);
+    }
+
+    .panel p {
+      margin: 0 0 14px;
+    }
+
+    .panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .band {
+      background: var(--soft);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .card {
+      min-height: 210px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(70, 44, 39, 0.08);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services {
+      columns: 2;
+      column-gap: 42px;
+      padding-left: 20px;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .services li {
+      break-inside: avoid;
+      margin: 0 0 9px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    video {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #111;
+      box-shadow: var(--shadow);
+    }
+
+    .contact {
       text-align: center;
-      padding: 20px;
-      background: #f8e8ee;
+      background: #2f2a27;
+      color: #fff;
+    }
+
+    .contact p {
+      max-width: 680px;
+      margin: 0 auto 22px;
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    footer {
+      padding: 22px 6vw;
+      background: #211d1b;
+      color: rgba(255, 255, 255, 0.68);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .intro-grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .hero-media {
+        min-height: 340px;
+      }
+
+      .cards,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .services {
+        columns: 1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: flex-start;
+      }
+
+      section {
+        padding: 54px 20px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 46px 20px 30px;
+      }
+
+      .hero-media {
+        min-height: 280px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Sofia Oliveira</h1>
-  <p>Academia de Estética</p>
-  <a class="btn" href="https://instagram.com/sofiaoliveira_academaiestetica" target="_blank">Marcar pelo Instagram</a>
-</header>
-
-<section>
-  <h2>Sobre</h2>
-  <p>Especialistas em estética e formação profissional, focados em realçar a beleza e confiança de cada cliente.</p>
-</section>
-
-<section>
-  <h2>Galeria</h2>
-  <div class="galeria">
-  <img src="img1.jpg">
-  <img src="img2.jpg">
-  <img src="img3.jpg">
-  <img src="img4.jpg">
-  <img src="img5.jpg">
-  <img src="img6.jpg">
+  <div class="topbar">
+    <a class="brand" href="#inicio">Sofia Oliveira</a>
+    <nav aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#formacoes">Formações</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contactos">Contactos</a>
+    </nav>
   </div>
-</section>
 
-<section>
-  <h2>Contactos</h2>
-  <p>Instagram: @sofiaoliveira_academaiestetica</p>
-</section>
+  <header class="hero" id="inicio">
+    <div class="hero-copy">
+      <p class="eyebrow">Academia de Estética</p>
+      <h1>Sofia Oliveira</h1>
+      <p>Estética, beleza e formação profissional com uma abordagem humana, realista e focada na autoestima de cada mulher.</p>
+      <div class="actions">
+        <a class="btn" href="https://instagram.com/sofiaoliveira_academaiestetica" target="_blank" rel="noopener">Marcar pelo Instagram</a>
+        <a class="btn secondary" href="#servicos">Ver serviços</a>
+      </div>
+    </div>
+    <div class="hero-media" aria-hidden="true">
+      <img src="assets/images/image-7.jpeg" alt="">
+    </div>
+  </header>
 
-<footer>
-  <p>© 2026 Sofia Oliveira Academia Estética</p>
-</footer>
+  <main>
+    <section id="sobre">
+      <div class="section-inner intro-grid">
+        <div>
+          <p class="eyebrow">Sobre mim</p>
+          <h2>Beleza com técnica, verdade e cuidado.</h2>
+          <p class="lead">O meu nome é Sofia Oliveira e sou profissional na área da estética desde 2008, com experiência prática em diversos tratamentos e formação especializada.</p>
+        </div>
+        <div class="panel">
+          <p>Ao longo do meu percurso, tenho vindo a desenvolver não só competências técnicas, mas também uma abordagem mais humana e realista da beleza.</p>
+          <p>Acredito que a estética vai muito além da aparência: está diretamente ligada à autoestima, confiança e bem-estar emocional de cada mulher.</p>
+          <p>Trabalho acima de tudo com humildade e amor pelo que faço.</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="band" id="missao">
+      <div class="section-inner cards">
+        <article class="card">
+          <h3>A minha missão</h3>
+          <p>Ajudar mulheres a sentirem-se mais confiantes, bonitas e seguras de si mesmas, respeitando sempre a sua essência.</p>
+        </article>
+        <article class="card">
+          <h3>A minha profissão</h3>
+          <p>Atuo na área da estética e beleza com serviços especializados, segurança, qualidade e resultados visíveis.</p>
+        </article>
+        <article class="card">
+          <h3>O meu espaço</h3>
+          <p>Um ambiente acolhedor, seguro e profissional, criado para que cada cliente se sinta confortável e bem cuidada.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="section-inner split">
+        <div>
+          <p class="eyebrow">Serviços disponíveis</p>
+          <h2>Tratamentos, beleza e procedimentos personalizados.</h2>
+          <p class="lead">Disponibilizo diversos serviços na área da estética, com técnicas atualizadas e acompanhamento adaptado a cada cliente.</p>
+        </div>
+        <div class="panel">
+          <ul class="services">
+            <li>Aplicação e extensão de unhas</li>
+            <li>Nail art avançada</li>
+            <li>Extensão de pestanas</li>
+            <li>Lifting de pestanas</li>
+            <li>Brow lamination</li>
+            <li>Design de sobrancelha com henna</li>
+            <li>Threading e cera</li>
+            <li>Depilação a laser</li>
+            <li>Tratamentos corporais</li>
+            <li>Tratamentos faciais</li>
+            <li>Procedimentos estéticos avançados</li>
+            <li>Micropigmentação e microblading</li>
+            <li>Extensão de mega hair</li>
+            <li>Pedicure, plástica e spa dos pés</li>
+            <li>Limpeza de pele profunda</li>
+            <li>Piercing e microdermal</li>
+            <li>Tatuagem</li>
+            <li>Microagulhamento facial e labial</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="formacoes">
+      <div class="section-inner split">
+        <div>
+          <p class="eyebrow">Formações</p>
+          <h2>Formação prática para o mercado real.</h2>
+        </div>
+        <div class="panel">
+          <p>Disponibilizo formações presenciais e/ou online, focadas em aprendizagem prática, técnicas atualizadas, preparação para o mercado real, acompanhamento e suporte.</p>
+          <p>O objetivo é formar profissionais confiantes, preparadas e conscientes da responsabilidade que é trabalhar na área da estética com certificação aprovada e registada no Passaporte Qualifica.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <div class="section-inner">
+        <p class="eyebrow">Galeria</p>
+        <h2>Imagens do trabalho e do espaço.</h2>
+        <div class="gallery">
+          <img src="assets/images/img1.jpg" alt="Trabalho de estética Sofia Oliveira">
+          <img src="assets/images/img2.jpg" alt="Detalhe de serviço de estética">
+          <img src="assets/images/img3.jpg" alt="Resultado de beleza e estética">
+          <img src="assets/images/img4.jpg" alt="Academia de estética Sofia Oliveira">
+          <img src="assets/images/img5.jpg" alt="Serviço profissional de estética">
+          <img src="assets/images/img6.jpg" alt="Espaço Sofia Oliveira">
+          <img src="assets/images/image-7.jpeg" alt="Imagem adicional Sofia Oliveira">
+          <img src="assets/images/image-8.jpeg" alt="Imagem adicional do espaço">
+          <img src="assets/images/image-9.jpeg" alt="Imagem adicional de serviço">
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="videos">
+      <div class="section-inner">
+        <p class="eyebrow">Videos</p>
+        <h2>Momentos e resultados.</h2>
+        <div class="video-grid">
+          <video controls preload="metadata" src="assets/videos/video-1.mp4"></video>
+          <video controls preload="metadata" src="assets/videos/video-2.mp4"></video>
+          <video controls preload="metadata" src="assets/videos/video-3.mp4"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contactos">
+      <div class="section-inner">
+        <p class="eyebrow">Contactos</p>
+        <h2>Marca pelo Instagram.</h2>
+        <p>Para marcações, informações sobre serviços ou formações, entra em contacto através do Instagram.</p>
+        <a class="btn" href="https://instagram.com/sofiaoliveira_academaiestetica" target="_blank" rel="noopener">@sofiaoliveira_academaiestetica</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Sofia Oliveira Academia Estética</p>
+  </footer>
 </body>
 </html>
