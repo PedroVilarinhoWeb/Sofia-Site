@@ -260,46 +260,70 @@
 
     .hero-reveal {
       opacity: 0;
-      filter: blur(22px);
-      transform: translateY(34px);
+      filter: blur(30px);
+      transform: translateY(58px) scale(0.94);
       animation-name: heroDissolve;
-      animation-duration: 2.35s;
-      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+      animation-duration: 2.8s;
+      animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
       animation-fill-mode: forwards;
     }
 
     .delay-1 {
-      animation-delay: 0.2s;
+      animation-delay: 0.35s;
     }
 
     .delay-2 {
-      animation-delay: 0.85s;
+      animation-delay: 1.05s;
     }
 
     .delay-3 {
-      animation-delay: 1.5s;
+      animation-delay: 1.75s;
     }
 
     .delay-4 {
-      animation-delay: 2.15s;
+      animation-delay: 2.45s;
     }
 
     .hero-media {
       opacity: 0;
-      filter: blur(24px);
-      transform: translateX(36px) scale(0.975);
-      animation: heroImageDissolve 2.6s cubic-bezier(0.16, 1, 0.3, 1) 1.15s forwards;
+      filter: blur(34px);
+      transform: translateX(70px) scale(0.92);
+      animation: heroImageDissolve 3s cubic-bezier(0.19, 1, 0.22, 1) 1.1s forwards;
     }
 
     @keyframes heroDissolve {
+      0% {
+        opacity: 0;
+        filter: blur(30px);
+        transform: translateY(58px) scale(0.94);
+      }
+
+      55% {
+        opacity: 0.72;
+        filter: blur(10px);
+        transform: translateY(18px) scale(0.985);
+      }
+
       to {
         opacity: 1;
         filter: blur(0);
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
     }
 
     @keyframes heroImageDissolve {
+      0% {
+        opacity: 0;
+        filter: blur(34px);
+        transform: translateX(70px) scale(0.92);
+      }
+
+      55% {
+        opacity: 0.68;
+        filter: blur(12px);
+        transform: translateX(18px) scale(0.985);
+      }
+
       to {
         opacity: 1;
         filter: blur(0);
@@ -509,15 +533,6 @@
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .hero-reveal,
-      .hero-media {
-        opacity: 1;
-        filter: none;
-        transform: none;
-        animation: none;
-      }
-    }
   </style>
 </head>
 <body>
@@ -662,7 +677,7 @@
         <h2>Marca pelo Instagram.</h2>
         <p>Para marcações, informações sobre serviços ou formações, entra em contacto através do Instagram ou WhatsApp.</p>
         <a class="btn" href="https://instagram.com/sofiaoliveira_academaiestetica" target="_blank" rel="noopener">@sofiaoliveira_academaiestetica</a>
-        <a class="btn whatsapp" href="https://wa.me/351932939088" target="_blank" rel="noopener">WhatsApp +351 932 939 088</a>
+        <a class="btn whatsapp" href="https://wa.me/351932939088" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </section>
   </main>
