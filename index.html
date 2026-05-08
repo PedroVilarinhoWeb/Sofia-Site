@@ -55,6 +55,20 @@
       opacity: 0.42;
     }
 
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      pointer-events: none;
+      border-left: clamp(10px, 1.5vw, 18px) solid transparent;
+      border-right: clamp(10px, 1.5vw, 18px) solid transparent;
+      border-image: linear-gradient(180deg, var(--obsidian) 0%, #3a1429 38%, var(--rose) 68%, var(--obsidian) 100%) 1;
+      box-shadow:
+        inset 10px 0 22px rgba(143, 40, 84, 0.18),
+        inset -10px 0 22px rgba(143, 40, 84, 0.18);
+    }
+
     img,
     video {
       max-width: 100%;
@@ -202,6 +216,11 @@
       color: var(--obsidian);
       border-color: rgba(143, 40, 84, 0.25);
       box-shadow: 0 12px 26px rgba(143, 40, 84, 0.18);
+    }
+
+    .btn.whatsapp {
+      background: linear-gradient(135deg, #0b070b 0%, #25131d 36%, #f07bac 76%, #ffedf5 100%);
+      color: #fff;
     }
 
     .hero-media {
@@ -431,6 +450,7 @@
       <p>Estética, beleza e formação profissional com uma abordagem humana, realista e focada na autoestima de cada mulher.</p>
       <div class="actions">
         <a class="btn" href="https://instagram.com/sofiaoliveira_academaiestetica" target="_blank" rel="noopener">Marcar pelo Instagram</a>
+        <a class="btn whatsapp" href="https://wa.me/351932939088" target="_blank" rel="noopener">WhatsApp</a>
         <a class="btn secondary" href="#servicos">Ver serviços</a>
       </div>
     </div>
@@ -551,8 +571,9 @@
       <div class="section-inner">
         <p class="eyebrow">Contactos</p>
         <h2>Marca pelo Instagram.</h2>
-        <p>Para marcações, informações sobre serviços ou formações, entra em contacto através do Instagram.</p>
+        <p>Para marcações, informações sobre serviços ou formações, entra em contacto através do Instagram ou WhatsApp.</p>
         <a class="btn" href="https://instagram.com/sofiaoliveira_academaiestetica" target="_blank" rel="noopener">@sofiaoliveira_academaiestetica</a>
+        <a class="btn whatsapp" href="https://wa.me/351932939088" target="_blank" rel="noopener">WhatsApp +351 932 939 088</a>
       </div>
     </section>
   </main>
